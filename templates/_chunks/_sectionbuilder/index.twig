@@ -1,0 +1,19 @@
+{% set blocks = entry.sectionBuilder %}
+
+{% for block in blocks.all() %}
+	{% if block.type == "sectionGallery" %}
+		{% include "_chunks/_sectionbuilder/sectionGallery" %}
+	{% elseif block.type == "sectionGuarantees" %}
+		{% include "_chunks/_sectionbuilder/sectionGuarantees" %}
+	{% elseif block.type == "sectionNews" %}
+		{% include "_chunks/_sectionbuilder/sectionNews" %}
+	{% elseif block.type == "sectionFeatures" %}
+		{% include "_chunks/_sectionbuilder/sectionFeatures" %}
+	{% elseif block.type == "sectionContact" %}
+		{% include "_chunks/_sectionbuilder/sectionContact" %}
+	{% elseif block.type == "sectionTab" %}
+		{% include "_chunks/_sectionbuilder/sectionTab" %}
+	{% elseif block.type == "sectionInspiration" %}
+		{% include "_chunks/_sectionbuilder/sectionInspiration" %}
+	{% endif %}
+{% endfor %}

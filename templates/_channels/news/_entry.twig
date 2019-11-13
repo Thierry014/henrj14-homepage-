@@ -1,0 +1,32 @@
+{% extends "_site" %}
+{% block main %}
+	{% include "_chunks/_widgets/widgetHero" %}
+
+	<!-- Main Content -->
+	<main class="main-content">
+		<!--
+		|‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+		| Blog content
+		|‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+		!-->
+		<div class="section">
+			<div class="container">
+				<div class="text-center">
+					<h2>{{ entry.title }}</h2>
+					<p>{{ entry.postDate | date("M d, Y") }}</p>
+				</div>
+				{% include "_chunks/_contentbuilder/index" %}
+				{#				<div class="gap-xy-2 mt-6 px-lg-8">#}
+				{#					#}{# Fetch all of the tags related to this entry #}
+				{#					{% set tags = craft.tags.relatedTo(entry) %}#}
+
+				{#					#}{# Output them #}
+				{#					{% for tag in tags.all() %}#}
+				{#						<a class="badge badge-pill badge-secondary" href="{{ tag.url }}">{{ tag.title }}</a>#}
+				{#					{% endfor %}#}
+				{#				</div>#}
+			</div>
+		</div>
+	</main>
+
+{% endblock %}

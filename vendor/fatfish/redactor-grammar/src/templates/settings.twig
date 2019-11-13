@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * RedactorGrammar plugin for Craft CMS 3.x
+ *
+ * RedactorGrammar Settings.twig
+ *
+ * @author    fatfish
+ * @copyright Copyright (c) 2018 fatfish
+ * @link      https://fatfish.com.au
+ * @package   RedactorGrammar
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("fatfish\\redactorgrammar\\assetbundles\\redactorgrammar\\RedactorGrammarAsset") %}
+
+{{ forms.textField({
+    label: 'API KEY',
+    instructions: 'Enter API Key from https://prowritingaid.com/en/App/API.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}

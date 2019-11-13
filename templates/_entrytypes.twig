@@ -1,0 +1,6 @@
+{#
+This template is simply used to determine what entity type
+is used by the main Site Content structure, and then route to the
+template of the same name within the "entrytypes" folder
+#}
+{% include "_entrytypes/" ~ entry.type %}

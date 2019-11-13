@@ -1,0 +1,23 @@
+{% extends "_site" %}
+{% block main %}
+	{% include "_chunks/_widgets/widgetHero"
+		with { heroTitle : '404 Not Found' } %}
+	{% do seomatic.meta.seoTitle("404 Not Found") %}
+	{% do seomatic.meta.seoDescription("404 - At Tassie Homes we pride ourselves on providing innovative, affordable, high quality homes for our clients.") %}
+	{% do seomatic.meta.ogImage(companyInfo.defaultHeroImage.one.url) %}
+	<section class="main-content">
+		<section class="row d-flex align-items-center h-50vh mx-0">
+			<div class="container text-center justify-content-center col-12">
+				<h1 class="display-2 text-muted my-7">404, Page not found</h1>
+				<p class="lead">The page you were looking for appeared to be moved, deleted, or does not exist.</p>
+				<p class="lead">If you have any other issues please don't hesitate to contact us.</p>
+				<br>
+				<button class="btn btn-sm btn-danger w-150 mr-2 mb-5" type="button"
+				        onclick="window.history.back();">Go
+				                                         back
+				</button>
+				<a class="btn btn-sm btn-danger w-150 mr-2 mb-5" href="{{ siteUrl }}">Return Home</a>
+			</div>
+		</section>
+	</section>
+{% endblock %}

@@ -1,0 +1,13 @@
+# CRAFT ENVIRONMENT
+.env
+
+# CRAFT STORAGE
+/craft/storage/*
+/storage/*
+
+# ASSETS
+#/web/assets/*
+
+
+# MISC FILES
+.idea

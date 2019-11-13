@@ -1,0 +1,27 @@
+{% set blocks = entry.contentBuilder %}
+
+{% for block in blocks.all() %}
+	{% if block.type == "contentBody" %}
+		{% include "_chunks/_contentbuilder/contentBody" %}
+	{% elseif block.type == "contentImage" %}
+		{% include "_chunks/_contentbuilder/contentImage" %}
+	{% elseif block.type == "contentBlockquote" %}
+		{% include "_chunks/_contentbuilder/contentBlockquote" %}
+	{% elseif block.type == "contentLead" %}
+		{% include "_chunks/_contentbuilder/contentLead" %}
+	{% elseif block.type == "contentMultiColumns" %}
+		{% include "_chunks/_contentbuilder/contentMultiColumns" %}
+	{% elseif block.type == "contentImageText" %}
+		{% include "_chunks/_contentbuilder/contentImageText" %}
+	{% elseif block.type == "contentCatalogue" %}
+		{% include "_chunks/_contentbuilder/contentCatalogue" %}
+	{% elseif block.type == "contentSlider" %}
+		{% include "_chunks/_contentbuilder/contentSlider" %}
+	{% elseif block.type == "contentInclusions" %}
+		{% include "_chunks/_contentbuilder/contentInclusions" %}
+	{% elseif block.type == "contentItemGrid" %}
+		{% include "_chunks/_contentbuilder/contentItemGrid" %}
+	{% elseif block.type == "contentVideo" %}
+		{% include "_chunks/_contentbuilder/contentVideo" %}
+	{% endif %}
+{% endfor %}

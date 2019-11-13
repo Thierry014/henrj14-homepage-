@@ -1,0 +1,40 @@
+{
+    "name": "fatfish/redactor-grammar",
+    "description": "Redactor with beyond grammar extension",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "redactorgrammar"
+    ],
+    "support": {
+        "docs": "https://github.com/https://github.com/fatfishdigital/redactor-grammar/blob/master/README.md",
+        "issues": "https://github.com/https://github.com/fatfishdigital/redactor-grammar/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fatfish",
+            "homepage": "https://fatfish.com.au"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "fatfish\\redactorgrammar\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "RedactorGrammar",
+        "handle": "redactor-grammar",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/https://github.com/fatfishdigital/redactor-grammar/master/CHANGELOG.md",
+        "class": "fatfish\\redactorgrammar\\RedactorGrammar"
+    }
+}
