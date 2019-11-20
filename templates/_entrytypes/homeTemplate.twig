@@ -1,13 +1,208 @@
 {% extends "_site" %}
+
+{% set img = {
+    mode: 'crop',
+    width: 200,
+    quality: 90
+} %}
+
 {% block main %}
-	<!-- Main Content -->
-	<main id="home" class="main-content">
+    <!-- Main Content -->
+    <main id="home" class="main-content">
 
-{#		{% include "_chunks/_contentbuilder/index" %}#}
-{#		{% include "_chunks/_sectionbuilder/index" %}#}
+        {#		{% include "_chunks/_contentbuilder/index" %}#}
+        {% include "_chunks/_sectionbuilder/index" %}
+
+        {% for block in entry.sectionBuilder.all() %}
+
+            {#about me section#}
+            {% if block.type == "aboutme" %}
+                <section class="section" id="aboutme">
+                    <div class="container">
+                        <header class="section-header">
+                            <h2>My Profile</h2>
+                        </header>
+
+                        <div class="row gap-y">
+                            <div class="col-md-4 team-2">
+                            </div>
+
+                            <div class="col-md-4 team-2">
+                                <a href="#">
+                                    <img src="{{ block.imageIcon.one().url }}" alt="icon-image">
+                                </a>
+                                <h5>{{ block.myname }}</h5>
+                                <small>{{ block.position }}</small>
+                                <p>{{ block.introduction }}</p>
+                                <br>
+                                <div class="social social-brand">
+                                    <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a class="social-gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a class="social-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
 
 
+                            <div class="col-md-4 team-2">
 
-	</main>
+                            </div>
+
+                        </div>
+                </section>
+
+                {#		my process section#}
+            {% elseif block.type == "timeline" %}
+
+                <section id="timeline" class="section">
+                    <div class="container">
+                        <header class="section-header">
+                            <h2>My growing process</h2>
+
+                        </header>
+
+
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+
+                                <ol class="timeline">
+                                    {% for item in block.stage.all() %}
+                                        {% for row in item.moment %}
+
+                                            <li class="timeline-item">
+                                                <h5>{{ row.headline }}</h5>
+                                                {% if row.image.count() > 0 %}
+                                                    <p><img src="{{ row.image.one().url(img) }}" alt="..."></p>
+                                                {% endif %}
+                                                <p class="small-2">
+                                                    <time datetime="2017-02-08">{{ row.time }}</time>
+                                                </p>
+                                                <p>{{ row.description }}</p>
+                                            </li>
+
+                                        {% endfor %}
+
+                                    {% endfor %}
+                                </ol>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                {#		hobby section#}
+
+            {% elseif block.type == "hobbies" %}
+
+                <section class="section bg-gray" id="hobbies">
+                    <div class="container">
+                        <header class="section-header">
+                            <h2>What I will do in my spare time?</h2>
+
+                        </header>
+
+                        <div class="row gap-y">
+                            {% for item in block.items %}
+
+                                <div class="col-md-6">
+                                    <div class="card d-block border hover-shadow-6 mb-6">
+
+                                        <div class="gallery gallery-3-type4 relative">
+                                            <a class="gallery-item" href="#">
+                                                <img src="{{ item.image.one().url }}" alt="...">
+                                            </a>
+                                            <div class="gallery-item-group">
+                                                <a class="gallery-item" href="#">
+                                                    <img src="{{ item.smallimage.one().url }}" alt="...">
+                                                </a>
+                                                <a class="gallery-item" href="#">
+                                                    <img src="{{ item.smallimage.last().url }}" alt="...">
+                                                </a>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="p-6 text-center">
+                                            <p><a class="big-5 text-danger text-uppercase ls-2 fw-400"
+                                                  href="#">{{ item.topic }}</a>
+                                            </p>
+                                            <h5 class="mb-0"><a class="text-dark" href="#">{{ item.text }}
+                                                </a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+
+                {#		latest project section#}
+            {% elseif block.type == "projects" %}
+
+                <section class="section" id="project">
+                    <div class="container">
+                        <header class="section-header">
+                            <h2>Projects that I was involved</h2>
+                        </header>
+
+                        <div class="row">
+
+                            {% for item in block.items %}
+
+                            <div class="col-md-10 col-xl-9 mx-auto">
+
+
+                                <div class="card hover-shadow-7 my-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a href="{{ item.weblink }}"><img class="fit-cover position-absolute h-100"
+                                                                            src="{{ item.image.one().url }}"
+                                                                            alt="Go to project D"></a>
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            <div class="p-7">
+                                                <h4>{{ item.headline }} </h4>
+                                                <p>{{ item.text }}</p>
+                                                <a class="small ls-1 text-success" href="{{ item.weblink }}">Check More <span
+                                                            class="pl-1">&xrarr;</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </section>
+
+
+                {#		contact me section#}
+            {% elseif block.type =="connect" %}
+
+                <section id="radius" class="section text-white py-9"
+                         style="background-image: url({{ siteUrl }}assets/img/contactbg.jpg)" data-overlay="6">
+                    <canvas class="constellation" data-radius="300"></canvas>
+
+                    <div class="container">
+                        <header class="section-header">
+                            <h2>Contact me</h2>
+                            <small>( If you want connect me, feel free to contact me through the following email address
+                                and social media icon )
+                            </small>
+                            <hr>
+                            <p class="lead"><i class="fa fa-envelope"> {{ block.email }}</i></p>
+                        </header>
+
+
+                    </div>
+                </section>
+            {% endif %}
+        {% endfor %}
+
+    </main>
 
 {% endblock %}
