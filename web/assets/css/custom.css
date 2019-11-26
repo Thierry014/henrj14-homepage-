@@ -36,6 +36,11 @@ h1 {
     color: #ffffff;
     z-index: 200;
 }
+
+h2{
+    font-family: "Comic Sans MS", cursive;
+
+}
 .font-s{
     font-family: "Pacifico", cursive;
 }
@@ -47,6 +52,34 @@ h1 {
     left:5%;
 }
 
+.h2-trans{
+    font-family: "Pacifico", cursive;
+    position: absolute;
+    top: 50%;
+    left:35%;
+    z-index: 200;
+    color:#ffbf00;
+}
+
+.cv{
+    font-family: "Pacifico", cursive;
+    position: absolute;
+    top: 0;
+    right:60px;
+    z-index: 200;
+    width: 60px;
+    height:60px;
+    line-height: 60px;
+    color: #ffffff;
+    transition: all .2s ease-in-out;
+ }
+.iconcv{
+    color: #ffffff;
+}
+.cv:hover { transform: scale(1.1); }
+/*.h2-trans:hover{*/
+/*    font-size: 3rem;*/
+/*}*/
 .outer-menu {
     position: fixed;
     top: 0;
@@ -230,6 +263,13 @@ h1 {
     }
 }
 
+/*remove headline*/
+@media screen and (max-width: 1000px){
+.h2-trans{
+    display: none;
+}
+}
+
 
 
 
@@ -263,6 +303,10 @@ h1 {
 }
 #project{
     background: #D3D3D3;
+}
+
+#skills{
+    background: #ccffc4;
 }
 
 /*gallery*/
