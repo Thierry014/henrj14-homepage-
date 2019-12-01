@@ -8,17 +8,17 @@
 		{% hook 'seomaticRender' %}
 
 		<!-- Styles -->
-		<link href="/assets/css/page.min.css" rel="stylesheet">
-		<link href="/assets/css/custom.css?v2.7" rel="stylesheet">
+			<link href="{{ siteUrl }}assets/css/page.min.css" rel="stylesheet">
+		<link href="{{ siteUrl }}assets/css/custom.css?v2.7" rel="stylesheet">
 
 		{#		<link href="/assets/css/page.min.css?v=1.0" rel="stylesheet">#}
 
 		<!-- Favicons -->
-		<link rel="icon" href="/assets/img/favcion.png">
+		<link rel="icon" href="{{ siteUrl }}assets/img/favcion.png">
 
 
 		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="msapplication-config" content="/assets/img/favicon/browserconfig.xml">
+		<meta name="msapplication-config" content="{{ siteUrl }}assets/img/favicon/browserconfig.xml">
 		<meta name="theme-color" content="#ffffff">
 
 	{% endblock %}
@@ -42,8 +42,8 @@
 	var siteUrl = "{{ siteUrl }}";
 </script>
 
-<script src="/assets/js/page.min.js"></script>
-<script src="/assets/js/custom.js?v1.0"></script>
+<script src="{{ siteUrl }}assets/js/page.min.js"></script>
+<script src="{{ siteUrl }}assets/js/custom.js?v1.0"></script>
 
 
 </body>
